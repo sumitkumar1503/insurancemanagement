@@ -1,0 +1,83 @@
+{% extends 'insurance/adminbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<head>
+  <style media="screen">
+    input[type=text], select,input[type=number] ,input[type=password], textarea{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+
+
+   label #sidebar_btn {
+      z-index: 1;
+      color: #fff;
+      position: fixed;
+      cursor: pointer;
+      left: 300px;
+      padding-left: 60px;
+      margin-top:15px;
+      font-size: 20px;
+      
+      transition: 0.5s;
+      transition-property: color;
+    }
+    .left_area{
+      margin-top:8px;
+    }
+  </style>
+
+
+</head>
+
+<br><br>
+<h3 style="text-align:center;">UPDATE POLICY</h3>
+<div>
+  <form method="post" autocomplete="off" enctype="multipart/form-data" style="margin-left:200px;margin-right:200px;">
+      {% csrf_token %}
+        <label for="course_name">Category</label>
+      {% render_field policyForm.category class="form-control" placeholder="Life Insurance" %}
+
+        <label for="course_name">Policy Name</label>
+      {% render_field policyForm.policy_name class="form-control" placeholder="Jeevan Surbhi" %}
+
+     <label for="course_name">Sum Assurance</label>
+      {% render_field policyForm.sum_assurance class="form-control" placeholder="100000" %}
+
+    <label for="course_name">Premium</label>
+      {% render_field policyForm.premium class="form-control" placeholder="5000" %}
+
+          <label for="course_name">Tenure</label>
+      {% render_field policyForm.tenure class="form-control" placeholder="12" %}
+
+
+        
+<br><br>
+    <input type="submit" value="Update">
+  </form>
+</div>
+
+
+
+<br><br><br><br><br><br><br><br>
+{% endblock content %}

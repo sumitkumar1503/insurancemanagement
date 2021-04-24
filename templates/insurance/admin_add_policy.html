@@ -1,0 +1,47 @@
+{% extends 'insurance/adminbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  a:link {
+        text-decoration: none;
+      }
+    
+  </style>
+</head>
+<h2 style="text-align:center; color:blue;">ADD POLICY</h2>
+<form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;">
+    {%csrf_token%}
+    <div class="form-group">
+      <label for="course_name">Category</label>
+      {% render_field policyForm.category class="form-control" placeholder="Life Insurance" %}
+
+        <label for="course_name">Policy Name</label>
+      {% render_field policyForm.policy_name class="form-control" placeholder="Jeevan Surbhi" %}
+
+     <label for="course_name">Sum Assurance</label>
+      {% render_field policyForm.sum_assurance class="form-control" placeholder="100000" %}
+
+    <label for="course_name">Premium</label>
+      {% render_field policyForm.premium class="form-control" placeholder="5000" %}
+
+          <label for="course_name">Tenure</label>
+      {% render_field policyForm.tenure class="form-control" placeholder="12" %}
+
+
+    </div>
+    
+    
+<br>
+    <button type="submit" class="btn btn-primary">ADD</button>
+  </form>
+<br><br><br><br>
+{% endblock content %}
